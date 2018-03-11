@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android,Fragment,Dialog," />
 
 
 
@@ -95,12 +95,14 @@
 
 
 <meta name="description" content="场景经常会有一些弹窗的场景，很多时候，我们用的是 AlertDialog 或者 Dialog 来做。 AlertDialogAlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。 Dialog所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。 DialogFragmentDialogFragment 是在 3.0 后引入的，是">
+<meta name="keywords" content="Android,Fragment,Dialog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DialogFragment 布局调整">
 <meta property="og:url" content="http://yoursite.com/2018/03/11/android/DialogFragment 布局大小调整/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="ZengCanJie Blog">
 <meta property="og:description" content="场景经常会有一些弹窗的场景，很多时候，我们用的是 AlertDialog 或者 Dialog 来做。 AlertDialogAlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。 Dialog所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。 DialogFragmentDialogFragment 是在 3.0 后引入的，是">
-<meta property="og:updated_time" content="2018-03-11T02:42:31.730Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-11T04:51:14.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DialogFragment 布局调整">
 <meta name="twitter:description" content="场景经常会有一些弹窗的场景，很多时候，我们用的是 AlertDialog 或者 Dialog 来做。 AlertDialogAlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。 Dialog所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。 DialogFragmentDialogFragment 是在 3.0 后引入的，是">
@@ -118,7 +120,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -138,7 +140,7 @@
 
 
 
-  <title>DialogFragment 布局调整 | Hexo</title>
+  <title>DialogFragment 布局调整 | ZengCanJie Blog</title>
   
 
 
@@ -156,7 +158,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -174,7 +176,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">ZengCanJie Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -204,7 +206,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -214,7 +226,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -224,7 +236,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -264,13 +276,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/11/android/DialogFragment 布局大小调整/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ZengCanJie">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="ZengCanJie Blog">
     </span>
 
     
@@ -288,9 +300,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-11T10:32:17+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T10:32:17+08:00">
                 2018-03-11
               </time>
             
@@ -300,6 +312,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/UI/" itemprop="url" rel="index">
+                    <span itemprop="name">UI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -329,10 +374,10 @@
 
       
         <h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>经常会有一些弹窗的场景，很多时候，我们用的是 <code>AlertDialog</code> 或者 <code>Dialog</code> 来做。</p>
-<h4 id="AlertDialog"><a href="#AlertDialog" class="headerlink" title="AlertDialog"></a>AlertDialog</h4><pre><code>AlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。
-</code></pre><h4 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a>Dialog</h4><pre><code>所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。
-</code></pre><h4 id="DialogFragment"><a href="#DialogFragment" class="headerlink" title="DialogFragment"></a>DialogFragment</h4><pre><code>DialogFragment 是在 3.0 后引入的，是一种特殊的 Fragment。可以理解为是 Dialog 和 Fragment 的融合体。Google 也推荐使用 DialogFragment 来代替 Dialog。
-</code></pre><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>由于 DialogFragment 继承自 fragment , 所以拥有 Fragment 的什么周期，和 Fragment 的 特性。<br>所以可以通过 管理 Fragment 的生命周期来控制 Dialog ，也可以通过 Fragment 来监听一些时间，比如 屏幕旋转 和 Back 键 的监听等。</p>
+<h4 id="AlertDialog"><a href="#AlertDialog" class="headerlink" title="AlertDialog"></a>AlertDialog</h4><p>AlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。</p>
+<h4 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a>Dialog</h4><p>所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。</p>
+<h4 id="DialogFragment"><a href="#DialogFragment" class="headerlink" title="DialogFragment"></a>DialogFragment</h4><p>DialogFragment 是在 3.0 后引入的，是一种特殊的 Fragment。可以理解为是 Dialog 和 Fragment 的融合体。Google 也推荐使用 DialogFragment 来代替 Dialog。</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>由于 DialogFragment 继承自 fragment , 所以拥有 Fragment 的什么周期，和 Fragment 的 特性。<br>所以可以通过 管理 Fragment 的生命周期来控制 Dialog ，也可以通过 Fragment 来监听一些时间，比如 屏幕旋转 和 Back 键 的监听等。</p>
 <h4 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h4><p>其实也是 Fragment 的一个注意点。<br>传递数据的时候，尽量使用 <code>setArguments()</code> 来传递数据。因为生命周期变化的时候，<code>setArguments()</code> 传递过来的参数会保存起来，重新构建的时候，数据不会丢失。</p>
 <h3 id="DialogFragment-使用"><a href="#DialogFragment-使用" class="headerlink" title="DialogFragment 使用"></a>DialogFragment 使用</h3><p>可以使用 <code>onCreateDialog()</code> 或者 <code>onCreateView()</code> 来创建 界面，只需要实现一个就可以了。</p>
 <p>在使用 <code>onCreateView()</code> 创建的时候，会有一个默认的主题，导致会有空白背景 ，和 标题栏。<br>在<code>onStart()</code> 里面添加下面的代码就可以去掉了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Dialog dialog = getDialog();</span><br><span class="line">Window window = dialog.getWindow();</span><br><span class="line">window.setBackgroundDrawable(getResources().getDrawable(R.color.transparency));//背景透明</span><br><span class="line">dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);           //设置无标题</span><br></pre></td></tr></table></figure></p>
@@ -360,6 +405,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Fragment/" rel="tag"># Fragment</a>
+          
+            <a href="/tags/Dialog/" rel="tag"># Dialog</a>
+          
+        </div>
       
 
       
@@ -432,10 +487,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -444,8 +499,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="ZengCanJie" />
+          <p class="site-author-name" itemprop="name">ZengCanJie</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
           
@@ -456,7 +511,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
@@ -465,10 +520,10 @@
             
             
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
-              
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
             </div>
           
 
@@ -477,8 +532,8 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
               </a>
             </div>
           
@@ -539,16 +594,16 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">ZengCanJie</span>
 </div>
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
