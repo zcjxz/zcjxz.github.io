@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="canvas 的坐标体系x ：向右是正方向y : 向下是正方向 canvas 几何变化，如 translate ，rotate 其实都是变化坐标体系，也就是改变坐标体系（个人理解），也有另一种理解（扔物线大佬的理解）：canvas 的变化操作顺序是反的 ！ 也就是先写的后执行，后写的先执行。 camera 的坐标体系x ：向右是正方向y : 向上是正方向z : 向里是正方向，默认高度是 -8 x,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/android/Android 绘图坐标体系/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="canvas 的坐标体系x ：向右是正方向y : 向下是正方向 canvas 几何变化，如 translate ，rotate 其实都是变化坐标体系，也就是改变坐标体系（个人理解），也有另一种理解（扔物线大佬的理解）：canvas 的变化操作顺序是反的 ！ 也就是先写的后执行，后写的先执行。 camera 的坐标体系x ：向右是正方向y : 向上是正方向z : 向里是正方向，默认高度是 -8 x,">
+<meta property="og:updated_time" content="2018-03-11T02:29:48.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="canvas 的坐标体系x ：向右是正方向y : 向下是正方向 canvas 几何变化，如 translate ，rotate 其实都是变化坐标体系，也就是改变坐标体系（个人理解），也有另一种理解（扔物线大佬的理解）：canvas 的变化操作顺序是反的 ！ 也就是先写的后执行，后写的先执行。 camera 的坐标体系x ：向右是正方向y : 向上是正方向z : 向里是正方向，默认高度是 -8 x,">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android/Android 绘图坐标体系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/11/android/Android 绘图坐标体系/" class="article-date">
+  <time datetime="2018-03-11T02:32:41.659Z" itemprop="datePublished">2018-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="canvas-的坐标体系"><a href="#canvas-的坐标体系" class="headerlink" title="canvas 的坐标体系"></a>canvas 的坐标体系</h2><p>x ：向右是正方向<br>y : 向下是正方向</p>
+<p>canvas 几何变化，如 translate ，rotate 其实都是变化坐标体系，也就是改变坐标体系（个人理解），也有另一种理解（扔物线大佬的理解）：canvas 的变化操作顺序是反的 ！ 也就是先写的后执行，后写的先执行。</p>
+<h2 id="camera-的坐标体系"><a href="#camera-的坐标体系" class="headerlink" title="camera 的坐标体系"></a>camera 的坐标体系</h2><p>x ：向右是正方向<br>y : 向上是正方向<br>z : 向里是正方向，默认高度是 -8</p>
+<p>x,z 旋转的方向符合 左手定则 ，即 做出点赞的手势，拇指的方向是正方向，其他手指的方向就是旋转方向</p>
+<p>y 旋转的方向正好相反</p>
+<p>Camera 几何变化，也是改变坐标体系（最好，不要对 Camera 进行几何变化，而是通过 Canvas 来做几何变化，以为，Camera 的几何变化是三维了，还有 一个 虚拟的相机，所有导致情况会很复杂。一般用来旋转，使平面的 画面变成立体）</p>
+<p>还有一点要特别注意，对 Camera 的几何变化，不会立即投影到 canvas ，而是等所有几何变化完成后再进行投影，而且还要考虑 虚拟相机的位置。<br>所以，情况可能会和想象的不太一样。。。。</p>
+<h3 id="两个坐标体系互不影响"><a href="#两个坐标体系互不影响" class="headerlink" title="两个坐标体系互不影响"></a>两个坐标体系互不影响</h3><h3 id="都可以使用-save-来保存当前的坐标体系状态，使用-restore-来恢复状态"><a href="#都可以使用-save-来保存当前的坐标体系状态，使用-restore-来恢复状态" class="headerlink" title="都可以使用 save() 来保存当前的坐标体系状态，使用 restore() 来恢复状态"></a>都可以使用 save() 来保存当前的坐标体系状态，使用 restore() 来恢复状态</h3><h2 id="Matrix-（矩阵）"><a href="#Matrix-（矩阵）" class="headerlink" title="Matrix （矩阵）"></a>Matrix （矩阵）</h2><p>其实，无论是 Canvas ，还是 Camera ，本质上都是对 Matrix 进行操作。</p>
+<p>Camera 可以通过 <code>getMatrix(Matrix)</code> , 来获取到当前操作后的 Matrix .</p>
+<p>Canvas 的 translate 等几何变换也都是对 Matrix 进行操作 .</p>
+<p>Canvas 可以通过 <code>concat(Matrix)</code> 来设置 Matrix  .</p>
+<h4 id="Matrix-的操作主要分为两类"><a href="#Matrix-的操作主要分为两类" class="headerlink" title="Matrix 的操作主要分为两类"></a>Matrix 的操作主要分为两类</h4><ol>
+<li><p>preXXX</p>
+<p> 对矩阵进行预操作，个人理解为，在绘图前进行的操作，所以操作的顺序是正序的。</p>
+</li>
+<li><p>postXXX</p>
+<p> 对矩阵进行操作，对 Canvas 进行的对应操作可以大概等价于这个操作。个人理解为，绘图后对图像矩阵进行的处理，所以，和我们所理解的，进行几何变换后再绘制图像是相反的，所以，操作看起来应该的倒序的。（上面说，Canvas 的几何变换是对坐标体系的变化，其实也可以这么理解）</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/11/android/Android 绘图坐标体系/" data-id="cjem6vqct00010wuqmrjg43m5" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/11/android/Android 绘制顺序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/11/android/DialogFragment 布局大小调整/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/11/android/图片压缩/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Retrofit + RxJava 网络请求的简单封装/">Retrofit + RxJava 网络请求的简单封装</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Android 绘制顺序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Android 绘图坐标体系/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/DialogFragment 布局大小调整/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="绘制顺序总的调度方法 ： draw() , 在这个方法里面会依次进行下面的方法  绘制背景：drawBackground() 不可重写 绘制主体：onDraw() 绘制子 View : dispatchDraw() 绘制 滑动边缘渐变 和 滚动条 , 和 前景 ：onDrawForeground() , Android 6.0 后才支持  注意点关于绘制方法，有两点需要注意一下：  出于效率的考虑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/android/Android 绘制顺序/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="绘制顺序总的调度方法 ： draw() , 在这个方法里面会依次进行下面的方法  绘制背景：drawBackground() 不可重写 绘制主体：onDraw() 绘制子 View : dispatchDraw() 绘制 滑动边缘渐变 和 滚动条 , 和 前景 ：onDrawForeground() , Android 6.0 后才支持  注意点关于绘制方法，有两点需要注意一下：  出于效率的考虑">
+<meta property="og:updated_time" content="2018-03-11T01:40:45.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="绘制顺序总的调度方法 ： draw() , 在这个方法里面会依次进行下面的方法  绘制背景：drawBackground() 不可重写 绘制主体：onDraw() 绘制子 View : dispatchDraw() 绘制 滑动边缘渐变 和 滚动条 , 和 前景 ：onDrawForeground() , Android 6.0 后才支持  注意点关于绘制方法，有两点需要注意一下：  出于效率的考虑">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android/Android 绘制顺序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/11/android/Android 绘制顺序/" class="article-date">
+  <time datetime="2018-03-11T02:32:41.661Z" itemprop="datePublished">2018-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="绘制顺序"><a href="#绘制顺序" class="headerlink" title="绘制顺序"></a>绘制顺序</h2><p>总的调度方法 ： draw() , 在这个方法里面会依次进行下面的方法</p>
+<ol>
+<li>绘制背景：<code>drawBackground()</code> 不可重写</li>
+<li>绘制主体：<code>onDraw()</code></li>
+<li>绘制子 View : <code>dispatchDraw()</code></li>
+<li>绘制 滑动边缘渐变 和 滚动条 , 和 前景 ：<code>onDrawForeground()</code> , Android 6.0 后才支持</li>
+</ol>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>关于绘制方法，有两点需要注意一下：</p>
+<ol>
+<li><p>出于效率的考虑，ViewGroup 默认会绕过 draw() 方法，换而直接执行 dispatchDraw()，以此来简化绘制流程。所以如果你自定义了某个 ViewGroup 的子类（比如 LinearLayout）并且需要在它的除  dispatchDraw() 以外的任何一个绘制方法内绘制内容，你可能会需要调用 View.setWillNotDraw(false) 这行代码来切换到完整的绘制流程（是「可能」而不是「必须」的原因是，有些 ViewGroup 是已经调用过 setWillNotDraw(false) 了的，例如 ScrollView）。</p>
+</li>
+<li><p>有的时候，一段绘制代码写在不同的绘制方法中效果是一样的，这时你可以选一个自己喜欢或者习惯的绘制方法来重写。但有一个例外：如果绘制代码既可以写在 onDraw() 里，也可以写在其他绘制方法里，那么优先写在 onDraw() ，因为 Android 有相关的优化，可以在不需要重绘的时候自动跳过  onDraw() 的重复执行，以提升开发效率。享受这种优化的只有 onDraw() 一个方法。<br>总结</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/11/android/Android 绘制顺序/" data-id="cjem6vqcn00000wuq71yv0xzo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/11/android/Retrofit + RxJava 网络请求的简单封装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Retrofit + RxJava 网络请求的简单封装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/11/android/Android 绘图坐标体系/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/11/android/图片压缩/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Retrofit + RxJava 网络请求的简单封装/">Retrofit + RxJava 网络请求的简单封装</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Android 绘制顺序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Android 绘图坐标体系/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/DialogFragment 布局大小调整/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

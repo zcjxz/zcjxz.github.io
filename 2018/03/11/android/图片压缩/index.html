@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="图片压缩的种类1. 分辨率压缩也就是压缩图片的宽高。经过分辨率压缩后，可以减少 bitmap 的内存占用。 2. 质量压缩压缩每个像素的质量。经过质量压缩后，可以减少 图片 的占用磁盘空间，也就是减少了文件的大小。 实现1. 分辨率压缩123456789101112131415161718192021222324252627282930313233   /**    * @param reqWid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/android/图片压缩/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="图片压缩的种类1. 分辨率压缩也就是压缩图片的宽高。经过分辨率压缩后，可以减少 bitmap 的内存占用。 2. 质量压缩压缩每个像素的质量。经过质量压缩后，可以减少 图片 的占用磁盘空间，也就是减少了文件的大小。 实现1. 分辨率压缩123456789101112131415161718192021222324252627282930313233   /**    * @param reqWid">
+<meta property="og:updated_time" content="2018-03-11T01:40:46.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="图片压缩的种类1. 分辨率压缩也就是压缩图片的宽高。经过分辨率压缩后，可以减少 bitmap 的内存占用。 2. 质量压缩压缩每个像素的质量。经过质量压缩后，可以减少 图片 的占用磁盘空间，也就是减少了文件的大小。 实现1. 分辨率压缩123456789101112131415161718192021222324252627282930313233   /**    * @param reqWid">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android/图片压缩" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/11/android/图片压缩/" class="article-date">
+  <time datetime="2018-03-11T02:35:36.870Z" itemprop="datePublished">2018-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图片压缩的种类"><a href="#图片压缩的种类" class="headerlink" title="图片压缩的种类"></a>图片压缩的种类</h2><h3 id="1-分辨率压缩"><a href="#1-分辨率压缩" class="headerlink" title="1. 分辨率压缩"></a>1. 分辨率压缩</h3><pre><code>也就是压缩图片的宽高。经过分辨率压缩后，可以减少 bitmap 的内存占用。
+</code></pre><h3 id="2-质量压缩"><a href="#2-质量压缩" class="headerlink" title="2. 质量压缩"></a>2. 质量压缩</h3><pre><code>压缩每个像素的质量。经过质量压缩后，可以减少 图片 的占用磁盘空间，也就是减少了文件的大小。
+</code></pre><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="1-分辨率压缩-1"><a href="#1-分辨率压缩-1" class="headerlink" title="1. 分辨率压缩"></a>1. 分辨率压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">   /**</span><br><span class="line">    * @param reqWidth</span><br><span class="line"> *            目标宽度,这里的宽高只是阀值，实际显示的图片将小于等于这个值</span><br><span class="line"> * @param reqHeight</span><br><span class="line"> *            目标高度,这里的宽高只是阀值，实际显示的图片将小于等于这个值</span><br><span class="line"> * @param picPath</span><br><span class="line"> *            图片的路径</span><br><span class="line"> */</span><br><span class="line">public static Bitmap calculateInSampleSize(</span><br><span class="line">		String picPath, final int reqWidth,</span><br><span class="line">		final int reqHeight) &#123;</span><br><span class="line">	BitmapFactory.Options options=new BitmapFactory.Options();</span><br><span class="line">	options.inJustDecodeBounds=true;</span><br><span class="line">	BitmapFactory.decodeFile(picPath,options);</span><br><span class="line">	// 源图片的高度和宽度</span><br><span class="line">	final int height = options.outHeight;</span><br><span class="line">	final int width = options.outWidth;</span><br><span class="line">	int inSampleSize = 1;</span><br><span class="line">	if (height &gt; reqHeight || width &gt; reqWidth) &#123;</span><br><span class="line">		// 计算出实际宽高和目标宽高的比率</span><br><span class="line">		final int heightRatio = Math.round((float) height</span><br><span class="line">				/ (float) reqHeight);</span><br><span class="line">		final int widthRatio = Math.round((float) width / (float) reqWidth);</span><br><span class="line">		// 选择宽和高中最小的比率作为inSampleSize的值，这样可以保证最终图片的宽和高</span><br><span class="line">		// 一定都会大于等于目标的宽和高。</span><br><span class="line">		inSampleSize = heightRatio &lt; widthRatio ? heightRatio : widthRatio;</span><br><span class="line">	&#125;</span><br><span class="line">	// 设置压缩比例</span><br><span class="line">	options.inSampleSize = inSampleSize;</span><br><span class="line">	options.inJustDecodeBounds = false;</span><br><span class="line">	Bitmap bitmap = BitmapFactory.decodeFile(picPath, options);</span><br><span class="line">	return bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个类是在 bitmap 创建的时候就对分辨率的大小进行了控制。</p>
+<h3 id="2-质量压缩-1"><a href="#2-质量压缩-1" class="headerlink" title="2. 质量压缩"></a>2. 质量压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 图片压缩方法：（使用compress的方法） &lt;br&gt;</span><br><span class="line"> * </span><br><span class="line"> * &lt;b&gt;注意&lt;/b&gt; bitmap实际并没有被回收，如果你不需要，请手动置空 &lt;br&gt;</span><br><span class="line"> * &lt;b&gt;说明&lt;/b&gt; 如果bitmap本身的大小小于maxSize，则不作处理</span><br><span class="line"> * </span><br><span class="line"> * @param bitmap</span><br><span class="line"> *            要压缩的图片</span><br><span class="line"> * @param maxSize</span><br><span class="line"> *            压缩后的大小，单位kb</span><br><span class="line"> */</span><br><span class="line">public static Bitmap imageZoom(Bitmap bitmap, double maxSize) &#123;</span><br><span class="line">	// 将bitmap放至数组中，意在获得bitmap的大小（与实际读取的原文件要大）</span><br><span class="line">	ByteArrayOutputStream baos = new ByteArrayOutputStream();</span><br><span class="line">	int options=100;</span><br><span class="line">	bitmap.compress(Bitmap.CompressFormat.JPEG,options,baos);</span><br><span class="line">	// 判断bitmap占用空间是否大于允许最大空间 如果大于则压缩 小于则不压缩</span><br><span class="line">	while (baos.toByteArray().length/1024 &gt; maxSize) &#123;</span><br><span class="line">		baos.reset();</span><br><span class="line">		//每次把压缩把图片质量 -10</span><br><span class="line">		options-=10;</span><br><span class="line">		bitmap.compress(Bitmap.CompressFormat.JPEG,options,baos);</span><br><span class="line">	&#125;</span><br><span class="line">	//回收图片</span><br><span class="line">	bitmap.recycle();</span><br><span class="line">	//生成新的bitmap</span><br><span class="line">	Bitmap compressBitmap = BitmapFactory.decodeByteArray(baos.toByteArray(), 0, baos.size());</span><br><span class="line">	return compressBitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图片压缩的一般套路"><a href="#图片压缩的一般套路" class="headerlink" title="图片压缩的一般套路"></a>图片压缩的一般套路</h2><p>先进行分辨率压缩，把分辨率控制在一定的范围内。然后再进行质量压缩，如果压缩后文件大小还是大于所需的大小，压缩质量减小，再进行压缩。</p>
+<h2 id="把-Bitmap-保存到本地"><a href="#把-Bitmap-保存到本地" class="headerlink" title="把 Bitmap 保存到本地"></a>把 Bitmap 保存到本地</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 保存 Bitmap</span><br><span class="line"> * @param bitmap	bitmap 对象</span><br><span class="line"> * @param filePath	文件路径</span><br><span class="line"> * @return			是否操作成功</span><br><span class="line"> */</span><br><span class="line">public static boolean saveBitmap(Bitmap bitmap,String filePath)&#123;</span><br><span class="line">	File file=new File(filePath);</span><br><span class="line">	try &#123;</span><br><span class="line">		FileOutputStream fos=new FileOutputStream(file);</span><br><span class="line">		bitmap.compress(Bitmap.CompressFormat.PNG,100,fos);</span><br><span class="line">		fos.flush();</span><br><span class="line">		fos.close();</span><br><span class="line">		return true;</span><br><span class="line">	&#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">		return false;</span><br><span class="line">	&#125; catch (IOException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="把-Bitmap-转化成-byte数组"><a href="#把-Bitmap-转化成-byte数组" class="headerlink" title="把 Bitmap 转化成 byte数组"></a>把 Bitmap 转化成 byte数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 把Bitmap转Byte</span><br><span class="line"> */</span><br><span class="line">public byte[] bitmap2Bytes(Bitmap bm) &#123;</span><br><span class="line">    ByteArrayOutputStream baos = new ByteArrayOutputStream();</span><br><span class="line">    bm.compress(Bitmap.CompressFormat.PNG, 100, baos);</span><br><span class="line">    return baos.toByteArray();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="把-byte数组-转化成-Bitmap"><a href="#把-byte数组-转化成-Bitmap" class="headerlink" title="把 byte数组 转化成 Bitmap"></a>把 byte数组 转化成 Bitmap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bitmap bitmap=BitmapFactory.decodeByteArray(bytes, 0, bytes.length);</span><br></pre></td></tr></table></figure>
+<h2 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a>特别注意</h2><p> <code>Bitmap.compress((CompressFormat format, int quality, OutputStream stream))</code>这个方法会把压缩过后的数据放在 OutputStream 里面，如果把这个流转化成 bitmap ，然后再保存成文件，那么文件的就会变成压缩前的大小，但是图片的质量还是被压缩的。因为把压缩的数据转化成 bitmap 后，数据会自动填充，体积变大，但是填充的数据是空的，也就是填充了无用的数据，所以体积变大。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/11/android/图片压缩/" data-id="cjem6vqd000040wuq8obai0ng" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/11/android/Retrofit + RxJava 网络请求的简单封装/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Retrofit + RxJava 网络请求的简单封装</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/11/android/图片压缩/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Retrofit + RxJava 网络请求的简单封装/">Retrofit + RxJava 网络请求的简单封装</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Android 绘制顺序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Android 绘图坐标体系/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/DialogFragment 布局大小调整/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

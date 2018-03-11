@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="场景经常会有一些弹窗的场景，很多时候，我们用的是 AlertDialog 或者 Dialog 来做。 AlertDialogAlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。 Dialog所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。 DialogFragmentDialogFragment 是在 3.0 后引入的，是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/android/DialogFragment 布局大小调整/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="场景经常会有一些弹窗的场景，很多时候，我们用的是 AlertDialog 或者 Dialog 来做。 AlertDialogAlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。 Dialog所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。 DialogFragmentDialogFragment 是在 3.0 后引入的，是">
+<meta property="og:updated_time" content="2018-03-11T01:40:46.315Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="场景经常会有一些弹窗的场景，很多时候，我们用的是 AlertDialog 或者 Dialog 来做。 AlertDialogAlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。 Dialog所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。 DialogFragmentDialogFragment 是在 3.0 后引入的，是">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android/DialogFragment 布局大小调整" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/11/android/DialogFragment 布局大小调整/" class="article-date">
+  <time datetime="2018-03-11T02:32:17.191Z" itemprop="datePublished">2018-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>经常会有一些弹窗的场景，很多时候，我们用的是 <code>AlertDialog</code> 或者 <code>Dialog</code> 来做。</p>
+<h4 id="AlertDialog"><a href="#AlertDialog" class="headerlink" title="AlertDialog"></a>AlertDialog</h4><pre><code>AlertDialog 本来就是系统封装好的一个弹窗控件，用起来很简单也很舒服，但是定制起来就不是很方便。
+</code></pre><h4 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a>Dialog</h4><pre><code>所以更多的情况是 继承 Dialog 自己来实现一个 Dialog 。
+</code></pre><h4 id="DialogFragment"><a href="#DialogFragment" class="headerlink" title="DialogFragment"></a>DialogFragment</h4><pre><code>DialogFragment 是在 3.0 后引入的，是一种特殊的 Fragment。可以理解为是 Dialog 和 Fragment 的融合体。Google 也推荐使用 DialogFragment 来代替 Dialog。
+</code></pre><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>由于 DialogFragment 继承自 fragment , 所以拥有 Fragment 的什么周期，和 Fragment 的 特性。<br>所以可以通过 管理 Fragment 的生命周期来控制 Dialog ，也可以通过 Fragment 来监听一些时间，比如 屏幕旋转 和 Back 键 的监听等。</p>
+<h4 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h4><p>其实也是 Fragment 的一个注意点。<br>传递数据的时候，尽量使用 <code>setArguments()</code> 来传递数据。因为生命周期变化的时候，<code>setArguments()</code> 传递过来的参数会保存起来，重新构建的时候，数据不会丢失。</p>
+<h3 id="DialogFragment-使用"><a href="#DialogFragment-使用" class="headerlink" title="DialogFragment 使用"></a>DialogFragment 使用</h3><p>可以使用 <code>onCreateDialog()</code> 或者 <code>onCreateView()</code> 来创建 界面，只需要实现一个就可以了。</p>
+<p>在使用 <code>onCreateView()</code> 创建的时候，会有一个默认的主题，导致会有空白背景 ，和 标题栏。<br>在<code>onStart()</code> 里面添加下面的代码就可以去掉了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Dialog dialog = getDialog();</span><br><span class="line">Window window = dialog.getWindow();</span><br><span class="line">window.setBackgroundDrawable(getResources().getDrawable(R.color.transparency));//背景透明</span><br><span class="line">dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);           //设置无标题</span><br></pre></td></tr></table></figure></p>
+<h3 id="关于-DialogFragment-的思考"><a href="#关于-DialogFragment-的思考" class="headerlink" title="关于 DialogFragment 的思考"></a>关于 DialogFragment 的思考</h3><p>既然 DialogFragment 既可以是 Dialog 也可以是 Fragment 。那 DialogFragment 到底是什么东西呢。</p>
+<p>答案是 Dialog ， 但是是一个可以感知 Fragment 生命周期的 Dialog。</p>
+<p>通过查看源码，可以发现 <code>DialogFragment</code> 其实是在内部维护一个 Dialog ，然后再把 Fragment 创建的 View ， 通过 Dialog 的 <code>setContentView()</code> 设置进去。<br>要显示的时候，也就是调用 DialogFragment 的 show() 方法来显示的时候会传进来一个 <code>FragmentManager</code> 通过这个 <code>FragmentManager</code> 我们的 Dialogfragment 就可以监听到 Fragment 的生命周期了。<br>让我们看一下源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void show(FragmentManager manager, String tag) &#123;</span><br><span class="line">    mDismissed = false;</span><br><span class="line">    mShownByMe = true;</span><br><span class="line">    FragmentTransaction ft = manager.beginTransaction();</span><br><span class="line">    ft.add(this, tag);</span><br><span class="line">    ft.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>再看一下几个关键的 方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void onStart() &#123;</span><br><span class="line">    super.onStart();</span><br><span class="line">    if (mDialog != null) &#123;</span><br><span class="line">        mViewDestroyed = false;</span><br><span class="line">        mDialog.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>现在知道 为什么要在 <code>onStart()</code> 后面才能去掉 背景和 标题了吧？</p>
+<p>什么？还不知道？</p>
+<p>这里我们是通过 获取到 window 对象，然后把背景设置成透明。<br>而第一步是要获取到 window 对象，但是 Dialog 是要在 调用 show() 方法后才会添加到 window 里面，我们才能获取到 window 对象。在 <code>onStart</code> 方法里面就调用了 show 方法。</p>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>既然知道 DialogFragment 是 Dialog ， Dialog 又是通过 WindowManager 来添加的一个 window ，那就好办了，通过修改 window 的配置就可以了。</p>
+<p>当然，也还是要在 <code>onStart</code> 方法之后 使用。 至于原因嘛，你懂的 ，刚才已经说过了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Window window = getDialog().getWindow();</span><br><span class="line">window.setLayout(300,200);</span><br></pre></td></tr></table></figure></p>
+<p>当然位置什么的也是可以控制的，也是通过控制 window 来实现的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/11/android/DialogFragment 布局大小调整/" data-id="cjem6vqcw00020wuqtljlv4fb" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/11/android/Android 绘图坐标体系/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/11/android/图片压缩/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Retrofit + RxJava 网络请求的简单封装/">Retrofit + RxJava 网络请求的简单封装</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Android 绘制顺序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/Android 绘图坐标体系/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/11/android/DialogFragment 布局大小调整/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
