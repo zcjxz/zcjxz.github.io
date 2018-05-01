@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="CentOS 下搭建 NodeJS 环境12yum install nodejsyum install npm 完成！就是这么简单 Ubuntu 下搭建 NodeJS 环境ubuntu 就比较坑了。虽然也有包安装工具，但是安装之后一直是 4.2.6 的版本。 123apt-get install nodejsapt install nodejs-legacyapt install npm 然后看到">
+<meta name="description" content="CentOS 下搭建 NodeJS 环境12yum install nodejsyum install npm 安装之后一直是 6.1.4 ， 试了升级也没升级成功。 最好是重新装。步骤如下： 1234567891011121314// 下载二进制文件wget https://npm.taobao.org/mirrors/node/v8.11.1/node-v8.11.1-linux-x64.ta">
 <meta name="keywords" content="Linux,node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 CentOS 和 Ubuntu 下搭建 NodeJS 环境">
 <meta property="og:url" content="http://yoursite.com/2018/04/22/linux/在 CentOS 和 Ubuntu 下搭建 NodeJS 环境/index.html">
 <meta property="og:site_name" content="ZengCanJie Blog">
-<meta property="og:description" content="CentOS 下搭建 NodeJS 环境12yum install nodejsyum install npm 完成！就是这么简单 Ubuntu 下搭建 NodeJS 环境ubuntu 就比较坑了。虽然也有包安装工具，但是安装之后一直是 4.2.6 的版本。 123apt-get install nodejsapt install nodejs-legacyapt install npm 然后看到">
+<meta property="og:description" content="CentOS 下搭建 NodeJS 环境12yum install nodejsyum install npm 安装之后一直是 6.1.4 ， 试了升级也没升级成功。 最好是重新装。步骤如下： 1234567891011121314// 下载二进制文件wget https://npm.taobao.org/mirrors/node/v8.11.1/node-v8.11.1-linux-x64.ta">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-21T16:07:07.824Z">
+<meta property="og:updated_time" content="2018-05-01T12:53:07.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 CentOS 和 Ubuntu 下搭建 NodeJS 环境">
-<meta name="twitter:description" content="CentOS 下搭建 NodeJS 环境12yum install nodejsyum install npm 完成！就是这么简单 Ubuntu 下搭建 NodeJS 环境ubuntu 就比较坑了。虽然也有包安装工具，但是安装之后一直是 4.2.6 的版本。 123apt-get install nodejsapt install nodejs-legacyapt install npm 然后看到">
+<meta name="twitter:description" content="CentOS 下搭建 NodeJS 环境12yum install nodejsyum install npm 安装之后一直是 6.1.4 ， 试了升级也没升级成功。 最好是重新装。步骤如下： 1234567891011121314// 下载二进制文件wget https://npm.taobao.org/mirrors/node/v8.11.1/node-v8.11.1-linux-x64.ta">
 
 
 
@@ -374,8 +374,11 @@
 
       
         <h2 id="CentOS-下搭建-NodeJS-环境"><a href="#CentOS-下搭建-NodeJS-环境" class="headerlink" title="CentOS 下搭建 NodeJS 环境"></a>CentOS 下搭建 NodeJS 环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install nodejs</span><br><span class="line">yum install npm</span><br></pre></td></tr></table></figure>
-<p>完成！就是这么简单</p>
-<h2 id="Ubuntu-下搭建-NodeJS-环境"><a href="#Ubuntu-下搭建-NodeJS-环境" class="headerlink" title="Ubuntu 下搭建 NodeJS 环境"></a>Ubuntu 下搭建 NodeJS 环境</h2><p>ubuntu 就比较坑了。虽然也有包安装工具，但是安装之后一直是 4.2.6 的版本。</p>
+<p>安装之后一直是 6.1.4 ， 试了升级也没升级成功。</p>
+<p>最好是重新装。步骤如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 下载二进制文件</span><br><span class="line">wget https://npm.taobao.org/mirrors/node/v8.11.1/node-v8.11.1-linux-x64.tar.xz</span><br><span class="line">// 解压</span><br><span class="line">xz -d node-v8.11.1-linux-x64.tar.xz</span><br><span class="line">// 再解压</span><br><span class="line">tar -xvf node-v8.11.1-linux-64.tar</span><br><span class="line">// 进入 bin 并 查看文件</span><br><span class="line">cd node-v8.11.1-linux-64/bin &amp;&amp; ls</span><br><span class="line">// 查看版本是不是正确</span><br><span class="line">./node -v</span><br><span class="line">//配置全局环境，这里我们用 软连接 的方式</span><br><span class="line">ln -s /root/node-v8.11.1-linux-x64/bin/node /usr/local/bin/node</span><br><span class="line">ln -s /root/node-v8.11.1-linux-x64/bin/npm /usr/local/bin/npm</span><br><span class="line">//注： 若要删除软连接，则要到软连接存在的目录（上面是：/usr/local/bin）中使用命令rm -rf &quot;xxx(软连接名)&quot;</span><br></pre></td></tr></table></figure>
+<p>参考地址：<a href="https://my.oschina.net/u/3381212/blog/1629875" target="_blank" rel="noopener">https://my.oschina.net/u/3381212/blog/1629875</a> </p>
+<h2 id="Ubuntu-下搭建-NodeJS-环境"><a href="#Ubuntu-下搭建-NodeJS-环境" class="headerlink" title="Ubuntu 下搭建 NodeJS 环境"></a>Ubuntu 下搭建 NodeJS 环境</h2><p>有个问题是安装之后一直是 4.2.6 的版本。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nodejs</span><br><span class="line">apt install nodejs-legacy</span><br><span class="line">apt install npm</span><br></pre></td></tr></table></figure>
 <p>然后看到一篇文章，说到可能是源比较旧，所以下载到的是比较旧的版本。然后就搜索了一大堆更新源的东西，更新了源。</p>
 <p>但是！更新后安装也还是 4.2.6 。</p>
