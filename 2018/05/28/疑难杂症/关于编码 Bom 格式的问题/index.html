@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,绘图," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -94,18 +94,17 @@
 
 
 
-<meta name="description" content="绘制顺序总的调度方法 ： draw() , 在这个方法里面会依次进行下面的方法  绘制背景：drawBackground() 不可重写 绘制主体：onDraw() 绘制子 View : dispatchDraw() 绘制 滑动边缘渐变 和 滚动条 , 和 前景 ：onDrawForeground() , Android 6.0 后才支持  注意点关于绘制方法，有两点需要注意一下：  出于效率的考虑">
-<meta name="keywords" content="Android,绘图">
+<meta name="description" content="发现问题在做版本升级的时候，会检查服务器上面的版本信息，是一段文本，获取下来，根据特定规则进行分割，获取到版本号，判断是否升级。 在对 版本号 的字符串做转 int 处理的时候，报了一个错误：java.lang.NumberFormatException: Invalid int 分析问题我看了一下，这个确实是一个数字啊，怎么会转不过来？ 可能有什么特殊字符，表面上又看不出来的。 转 Unicod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 绘制顺序">
-<meta property="og:url" content="http://yoursite.com/2018/03/11/android/Android 绘制顺序/index.html">
+<meta property="og:title" content="关于编码 Bom 格式的问题">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/疑难杂症/关于编码 Bom 格式的问题/index.html">
 <meta property="og:site_name" content="ZengCanJie Blog">
-<meta property="og:description" content="绘制顺序总的调度方法 ： draw() , 在这个方法里面会依次进行下面的方法  绘制背景：drawBackground() 不可重写 绘制主体：onDraw() 绘制子 View : dispatchDraw() 绘制 滑动边缘渐变 和 滚动条 , 和 前景 ：onDrawForeground() , Android 6.0 后才支持  注意点关于绘制方法，有两点需要注意一下：  出于效率的考虑">
+<meta property="og:description" content="发现问题在做版本升级的时候，会检查服务器上面的版本信息，是一段文本，获取下来，根据特定规则进行分割，获取到版本号，判断是否升级。 在对 版本号 的字符串做转 int 处理的时候，报了一个错误：java.lang.NumberFormatException: Invalid int 分析问题我看了一下，这个确实是一个数字啊，怎么会转不过来？ 可能有什么特殊字符，表面上又看不出来的。 转 Unicod">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-11T04:53:09.005Z">
+<meta property="og:updated_time" content="2018-05-27T16:06:13.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 绘制顺序">
-<meta name="twitter:description" content="绘制顺序总的调度方法 ： draw() , 在这个方法里面会依次进行下面的方法  绘制背景：drawBackground() 不可重写 绘制主体：onDraw() 绘制子 View : dispatchDraw() 绘制 滑动边缘渐变 和 滚动条 , 和 前景 ：onDrawForeground() , Android 6.0 后才支持  注意点关于绘制方法，有两点需要注意一下：  出于效率的考虑">
+<meta name="twitter:title" content="关于编码 Bom 格式的问题">
+<meta name="twitter:description" content="发现问题在做版本升级的时候，会检查服务器上面的版本信息，是一段文本，获取下来，根据特定规则进行分割，获取到版本号，判断是否升级。 在对 版本号 的字符串做转 int 处理的时候，报了一个错误：java.lang.NumberFormatException: Invalid int 分析问题我看了一下，这个确实是一个数字啊，怎么会转不过来？ 可能有什么特殊字符，表面上又看不出来的。 转 Unicod">
 
 
 
@@ -134,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/11/android/Android 绘制顺序/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/28/疑难杂症/关于编码 Bom 格式的问题/"/>
 
 
 
 
 
-  <title>Android 绘制顺序 | ZengCanJie Blog</title>
+  <title>关于编码 Bom 格式的问题 | ZengCanJie Blog</title>
   
 
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/11/android/Android 绘制顺序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/疑难杂症/关于编码 Bom 格式的问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZengCanJie">
@@ -290,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Android 绘制顺序</h1>
+          <h1 class="post-title" itemprop="name headline">关于编码 Bom 格式的问题</h1>
         
 
         <div class="post-meta">
@@ -302,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T10:32:41+08:00">
-                2018-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T00:04:59+08:00">
+                2018-05-28
               </time>
             
 
@@ -312,50 +311,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/UI/" itemprop="url" rel="index">
-                    <span itemprop="name">UI</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/UI/绘图/" itemprop="url" rel="index">
-                    <span itemprop="name">绘图</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -384,20 +339,33 @@
       
 
       
-        <h2 id="绘制顺序"><a href="#绘制顺序" class="headerlink" title="绘制顺序"></a>绘制顺序</h2><p>总的调度方法 ： draw() , 在这个方法里面会依次进行下面的方法</p>
-<ol>
-<li>绘制背景：<code>drawBackground()</code> 不可重写</li>
-<li>绘制主体：<code>onDraw()</code></li>
-<li>绘制子 View : <code>dispatchDraw()</code></li>
-<li>绘制 滑动边缘渐变 和 滚动条 , 和 前景 ：<code>onDrawForeground()</code> , Android 6.0 后才支持</li>
-</ol>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>关于绘制方法，有两点需要注意一下：</p>
-<ol>
-<li><p>出于效率的考虑，ViewGroup 默认会绕过 draw() 方法，换而直接执行 dispatchDraw()，以此来简化绘制流程。所以如果你自定义了某个 ViewGroup 的子类（比如 LinearLayout）并且需要在它的除  dispatchDraw() 以外的任何一个绘制方法内绘制内容，你可能会需要调用 View.setWillNotDraw(false) 这行代码来切换到完整的绘制流程（是「可能」而不是「必须」的原因是，有些 ViewGroup 是已经调用过 setWillNotDraw(false) 了的，例如 ScrollView）。</p>
-</li>
-<li><p>有的时候，一段绘制代码写在不同的绘制方法中效果是一样的，这时你可以选一个自己喜欢或者习惯的绘制方法来重写。但有一个例外：如果绘制代码既可以写在 onDraw() 里，也可以写在其他绘制方法里，那么优先写在 onDraw() ，因为 Android 有相关的优化，可以在不需要重绘的时候自动跳过  onDraw() 的重复执行，以提升开发效率。享受这种优化的只有 onDraw() 一个方法。<br>总结</p>
-</li>
-</ol>
+        <h3 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h3><p>在做版本升级的时候，会检查服务器上面的版本信息，是一段文本，获取下来，根据特定规则进行分割，获取到版本号，判断是否升级。</p>
+<p>在对 版本号 的字符串做转 int 处理的时候，报了一个错误：<br><code>java.lang.NumberFormatException: Invalid int</code></p>
+<h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><p>我看了一下，这个确实是一个数字啊，怎么会转不过来？</p>
+<p>可能有什么特殊字符，表面上又看不出来的。</p>
+<p>转 Unicode 看看就知道了。</p>
+<h3 id="得出问题"><a href="#得出问题" class="headerlink" title="得出问题"></a>得出问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 字符串转换unicode</span><br><span class="line"> * @param string</span><br><span class="line"> * @return</span><br><span class="line"> */</span><br><span class="line">public static String string2Unicode(String string) &#123;</span><br><span class="line">    StringBuffer unicode = new StringBuffer();</span><br><span class="line">    for (int i = 0; i &lt; string.length(); i++) &#123;</span><br><span class="line">        // 取出每一个字符</span><br><span class="line">        char c = string.charAt(i);</span><br><span class="line">        // 转换为unicode</span><br><span class="line">        unicode.append(&quot;\\u&quot; + Integer.toHexString(c));</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    return unicode.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转出来一看确实有问题，前面多了一个 <code>\ufeff</code> 这个东西，然后再搜索这个东西。</p>
+<p>这个东西是由于格式的问题，获取到的这段文本是带 BOM 格式的，文本的开头会多出一个 <code>\ufeff</code> 这个东西。</p>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>最直接的方法就是在服务器上保存的时候使用 <code>utf-8 无BOM</code> 的格式保存，客户端在获取的时候也不会出现这种问题。</p>
+<p>还有一种办法，就是在服务器无法修改的情况下，就是用正则把非数字的东西全都给替换成“”空字符。这样就不会有多余的特殊字符了。</p>
+<p>具体使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.parseInt(string.replaceAll(&quot;\\D+&quot;,&quot;&quot;).replaceAll(&quot;\r&quot;, &quot;&quot;).replaceAll(&quot;\n&quot;, &quot;&quot;).trim());</span><br></pre></td></tr></table></figure></p>
+<h3 id="BOM-的延伸"><a href="#BOM-的延伸" class="headerlink" title="BOM 的延伸"></a>BOM 的延伸</h3><p>为什么会有 BOM 这种东西呢？</p>
+<p>存在即合理。</p>
+<blockquote>
+<p>BOM（Byte-Order Mark，字节序标记）是Unicode码点U+FEFF。它被定义来放在一个UTF-16文件的开头，如果字节序列是FEFF那么这个文件就是大端序，如果字节序列是FFFE那么这个文件就是小端序。</p>
+</blockquote>
+<blockquote>
+<p>UTF-8本身是没有字节序的问题的（因为它是以单个字节为最小单位），但是Windows里面很多编辑器（比如记事本）会多此一举的在UTF-8文件开头加入EF BB FF也就是U+FEFF的UTF-8编码。</p>
+</blockquote>
+<p>为什么 Windows 的编辑器（如记事本）会自动使用带BOM格式的编码呢？</p>
+<blockquote>
+<p>真正的标准应该是bom是可选的，为什么可选?因为有些时候不带bom会出错，就拿历史较久远的windows来讲吧，很多国家的用户都在用windows ，其文件都是用其本地的ansi 编码来做的，比如大陆的GBK和GB2013,港台的big5，这些编码因为针对当地所用的字符制定的，所以呢，其存储文件较小，所以会大量使用，并且也大量存在着，微软不可能不考虑全球几十亿的用户的文件而盲目地修改解码方式，并且微软也是uncode 制定者之一，所以，带用bom的utf-8也是符合国际标准的。</p>
+</blockquote>
+<blockquote>
+<p>微软在坚持使用bom上没有错，因为这是在为用户考虑的。也许给我们这些写程序的带来了不便，但是，计算机最广泛的用户不是程序员。</p>
+</blockquote>
+<p>所以使用专业的编辑器和 IDE 就很有必要了。可以为我们省去了很多不必要的问题。这些问题在专业的编辑器和 IDE 上是几乎不会出现的。</p>
 
       
     </div>
@@ -413,14 +381,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
-            <a href="/tags/绘图/" rel="tag"># 绘图</a>
-          
-        </div>
-      
 
       
       
@@ -430,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/11/android/Android 绘图坐标体系/" rel="next" title="Android 绘图坐标体系">
-                <i class="fa fa-chevron-left"></i> Android 绘图坐标体系
+              <a href="/2018/04/22/linux/在 CentOS 和 Ubuntu 下搭建 NodeJS 环境/" rel="next" title="在 CentOS 和 Ubuntu 下搭建 NodeJS 环境">
+                <i class="fa fa-chevron-left"></i> 在 CentOS 和 Ubuntu 下搭建 NodeJS 环境
               </a>
             
           </div>
@@ -439,10 +399,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/11/android/Retrofit + RxJava 网络请求的简单封装/" rel="prev" title="Retrofit + RxJava 网络请求的简单封装">
-                Retrofit + RxJava 网络请求的简单封装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -576,7 +532,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制顺序"><span class="nav-number">1.</span> <span class="nav-text">绘制顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点"><span class="nav-number">2.</span> <span class="nav-text">注意点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#发现问题"><span class="nav-number">1.</span> <span class="nav-text">发现问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析问题"><span class="nav-number">2.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#得出问题"><span class="nav-number">3.</span> <span class="nav-text">得出问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决问题"><span class="nav-number">4.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM-的延伸"><span class="nav-number">5.</span> <span class="nav-text">BOM 的延伸</span></a></li></ol></div>
             
 
           </div>
